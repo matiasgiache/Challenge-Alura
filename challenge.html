@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Challenge Encriptador</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style-challenge.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="Logo">
+                <h1><img class="logo-a" src="Imagenes/Logo@2x.png"></h1>
+            </div>
+        </header>
+        <main>
+            <section>
+                <textarea cols="70" rows="100" id="texto-a-encriptar" class="input" required placeholder="Ingrese el texto aqui..."></textarea>
+            </section>
+            <section>
+                <div class="rectangulo">
+                    <p id="oracion"></p>
+                    <div id="imagen2">
+                        <hug class="Frame-5">
+                            <p class="p1"><strong> Ningun mensaje fue encontrado </strong></p>
+                            <p class="p2">Ingresa el texto que desees encriptar o desencriptar</p>
+                        </hug>
+                        <img id="muñeco" src="Imagenes/Muñeco.png">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <hug class="Frame-1">
+                    <svg class="exclamacion" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+                    <hug><t>Solo letras minusculas y sin acentos</t></hug>
+                </hug>
+            </section>
+            <hug class="Frame-3">
+                <button class="bot1" onclick="encriptarOracion()">Encriptar</button>
+                <button class="bot2" onclick="botonDesencriptar()">Desencriptar</button>
+            </hug>
+            <section>
+                <script>
+                    var imagen=new Image()
+                    imagen.src='Imagenes/2.png'
+                    function botonDesencriptar(){
+                        document.getElementById("imagen2").style.display= "none"
+                        let texto = document.getElementById("texto-a-encriptar").value;
+                        let textListo=texto
+                        textListo=textListo.replaceAll("ai","a");
+                        textListo=textListo.replaceAll("enter","e");
+                        textListo=textListo.replaceAll("imes","i");
+                        textListo=textListo.replaceAll("ober","o");
+                        textListo=textListo.replaceAll("ufat","u");
+
+                        document.getElementById("oracion").innerHTML = textListo;
+                    }
+                    function encriptarOracion(){
+                        document.getElementById("imagen2").style.display= "none";
+                        let texto = document.getElementById("texto-a-encriptar").value;
+                        let textListo=""
+                        for (let x of texto){
+                            if (x=="a"){
+                                textListo+="ai";
+                            }
+                            else if (x=="e"){
+                                textListo+="enter";
+                            }
+                            else if (x=="i"){
+                                textListo+="imes";
+                            }
+                            else if (x=="o"){
+                                textListo+="ober";
+                            }
+                            else if (x=="u"){
+                                textListo+="ufat";
+                            }
+                            else {
+                                textListo+=x
+                            }
+                        }
+                        document.getElementById("oracion").innerHTML = textListo;
+                    }
+                </script>
+            </section>
+
+        </main>
+
+    </body>
+
+</html>
